@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hypercar Gear Shifter + Tach</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <div class="hud">
+      <div class="hudLeft">
+        <div class="label">CURRENT GEAR</div>
+        <div id="gearText" class="gearText">N</div>
+
+        <div class="subHud">
+          <span class="chip">Hold <kbd>W</kbd> = accelerate</span>
+          <span class="chip">Hold <kbd>S</kbd> = brake</span>
+          <span class="chip">Press <kbd>Enter</kbd> = enable sound</span>
+        </div>
+
+        <!-- NEW: HUD brake indicator -->
+        <div id="hudBrake" class="hudBrake" aria-live="polite">BRAKE</div>
+      </div>
+
+      <div class="hudRight">
+        <div class="keys">
+          <kbd>←</kbd><kbd>→</kbd><kbd>↑</kbd><kbd>↓</kbd>
+          <span class="sep">•</span>
+          <kbd>W</kbd> <span class="muted">accel</span>
+          <kbd>S</kbd> <span class="muted">brake</span>
+        </div>
+        <button id="muteBtn" class="btn">Sound: ON</button>
+      </div>
+    </div>
+
+    <div class="dialCard">
+      <!-- TOP VIEW SHIFTER -->
+      <div class="dial" aria-label="Top view gear pattern">
+        <div class="h top"></div>
+        <div class="h mid"></div>
+        <div class="h bot"></div>
+
+        <div class="v left"></div>
+        <div class="v mid"></div>
+        <div class="v right"></div>
+
+        <div class="g g1">1</div>
+        <div class="g g2">2</div>
+        <div class="g g3">3</div>
+        <div class="g g4">4</div>
+        <div class="g g5">5</div>
+        <div class="g gr">R</div>
+        <div class="g gn">N</div>
+
+        <div id="knob" class="knob" aria-hidden="true"></div>
+      </div>
+
+      <!-- ROUND TACHOMETER -->
+      <div class="cluster">
+        <div id="tach" class="tach" style="--rpm:0; --needle:-120deg;">
+          <div class="tachFace"></div>
+          <div class="ticks"></div>
+          <div class="redZone"></div>
+
+          <div class="numbers">
+            <span class="n0">0</span>
+            <span class="n2">2</span>
+            <span class="n4">4</span>
+            <span class="n6">6</span>
+            <span class="n8">8</span>
+          </div>
+
+          <div class="needle"></div>
+          <div class="hub"></div>
+
+          <div class="tachText">
+            <div id="tachGear" class="tachGear">N</div>
+            <div class="tachTitle">RPM</div>
+            <div class="tachValue"><span id="rpmText">950</span></div>
+            <div class="tachSmall"><span id="speedText">0</span> km/h</div>
+
+            <!-- NEW: tach brake indicator -->
+            <div id="brakeText" class="brakeText">BRAKE</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hint">
+        Shift with <b>←/→</b> + <b>↑/↓</b>. Hold <b>W</b> to accelerate. Hold <b>S</b> to brake.
+      </div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
